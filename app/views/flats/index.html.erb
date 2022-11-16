@@ -1,0 +1,10 @@
+<%= render 'flats/navbar' %>
+
+<div class="container mt-5">
+<h1>All our Flats (<%= @flats.count %>)</h1>
+
+<div class="d-flex align-content-between flex-wrap" >
+<%= render 'flats/list', flats: @flats  %>
+</div>
+
+</div>

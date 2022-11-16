@@ -1,0 +1,21 @@
+<div id="flats">
+
+<% flats.each do |flat| %>
+  <div class="card mb-2" >
+    <div class="p-1" style='background-color: #f8f9fa'>
+      <h4><%= flat.name %></h4>
+      <p><%= flat.address %></p>
+      <div class="d-flex align-items-start flex-row">
+        <p class= "px-2"><i class="fa-solid fa-users"></i> <%= flat.number_of_guests %></p>
+        <p class= "px-2"><i class="fa-solid fa-dollar-sign"></i> <%= flat.price_per_night %></p>
+      </div>
+    </div>
+
+    <div>
+      <p>Add new</p>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
