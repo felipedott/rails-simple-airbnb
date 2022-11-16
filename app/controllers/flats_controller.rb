@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: %i[show edit update]
+  before_action :set_flat, only: %i[show edit update destroy]
 
   def index
     @flats = Flat.all
@@ -26,10 +26,19 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     if @flat.save
-      redirect_to @flat, notice: "flat was successfully created."
+      redirect_to @flat, notice: "Flat was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @flat.destroy
+    redirect_to flats_url, notice: "Flat was successfully destroyed."
+  end
+
+  def search(name)
+    @flat = Flat.where("name LIKE '%(#{name})%'")
   end
 
   private
